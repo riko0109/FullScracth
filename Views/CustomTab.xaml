@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="FullScratch.Views.CustomTab"
+             x:Name="CustomTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:FullScratch.ViewModels"
+             xmlns:local="clr-namespace:FullScratch.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:CustomTabViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <TabControl x:Name="Tab" ItemsSource="{Binding Tabs}">
+            <TabControl.ContextMenu>
+                <ContextMenu ItemsSource="{Binding ContextMenu}">
+                                 <!-- -->
+                </ContextMenu>
+            </TabControl.ContextMenu>
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <HeaderedContentControl Header="{Binding Header}" ContextMenu="{Binding Tabs}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <TextBox Text="{Binding Contents}"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+            
+    </Grid>
+</UserControl>
