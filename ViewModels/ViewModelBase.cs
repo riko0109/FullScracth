@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FullScratch.ViewModels
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : System.Windows.Controls.UserControl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

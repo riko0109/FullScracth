@@ -78,14 +78,19 @@ namespace FullScratch.Models
             set
             {
                 _IsSelected = value;
-                if(IsSelected)
+                if (IsSelected)
                 {
-                   Selected_Changed(this, EventArgs.Empty);
+                    Selected_Changed(this);
+                    SelectedChanged();
+                    OnSelectedChanged(this);
                 }
             }
         }
-
         public static Action SelectedChanged;
+
+        public delegate void SelectedChangedHandler(object sender);
+        public static event SelectedChangedHandler OnSelectedChanged;
+
         /// <summary>
         /// 選択されているディレクトリ
         /// </summary>
@@ -96,11 +101,6 @@ namespace FullScratch.Models
             set
             {
                 _SelectedDirectory = value;
-                if(SelectedChanged != null)
-                {
-                    SelectedChanged();
-                }
-
             }
         }
         #endregion
@@ -122,7 +122,7 @@ namespace FullScratch.Models
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void Selected_Changed(object sender, EventArgs e)
+        public void Selected_Changed(object sender)
         {
             SelectedDirectory = this;
         }

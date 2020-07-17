@@ -17,7 +17,8 @@
     <UserControl.DataContext>
         <vm:CustomListViewModel/>
     </UserControl.DataContext>
-    <ListView x:Name="ListView" ItemsSource="{Binding FileList}" HorizontalAlignment="Stretch">
+    
+    <ListView x:Name="ListView" ItemsSource="{Binding FileList}" HorizontalAlignment="Stretch" SelectedItem="{Binding SelectedListItem}">
         <ListView.View>
             <GridView>
                 <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="Auto">

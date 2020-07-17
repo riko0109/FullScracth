@@ -1,20 +1,21 @@
-﻿using FullScratch.Models;
-using System;
-using System.Collections.Generic;
+﻿using FullScratch.Views;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using static FullScratch.Models.Directory;
 
 namespace FullScratch.ViewModels
 {
-    public class CustomListViewModel:INotifyPropertyChanged
+    public class CustomListViewModel : ViewModelBase
     {
+
+        /// <summary>
+        /// FileListに表示するオブジェクト
+        /// </summary>
         private ObservableCollection<FileInfo> _FileList { get; set; }
         public ObservableCollection<FileInfo> FileList
         {
@@ -29,30 +30,46 @@ namespace FullScratch.ViewModels
             }
         }
 
-        public CustomListViewModel()
+        private FileInfo _SelectedListItem { get; set; }
+        public FileInfo SelectedListItem
         {
-            Models.Directory.SelectedChanged += FileListUpdate;
-        }
-
-        private void FileListUpdate()
-        {
-            try
+            get
             {
-                FileList =new ObservableCollection<FileInfo>(Models.Directory.SelectedDirectory.DirectoryInfo.GetFiles());
+                return _SelectedListItem;
             }
-            catch
+            set
             {
-
+                _SelectedListItem = value;
+                SelectedFileChanged(this);
+                RaisePropertyChanged();
             }
         }
 
 
         /// <summary>
-        /// プロパティ変更通知用イベントハンドラ
+        /// イベントハンドラ
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        /// <param name="sender"></param>
+        public delegate void SelectedChangedEventHandler(object sender);
+        public　static event SelectedChangedEventHandler SelectedFileChanged;
 
-        private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-                => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public CustomListViewModel()
+        {
+            Models.Directory.OnSelectedChanged += FileListUpdate;
+        }
+
+        private void FileListUpdate(object sender)
+        {
+            try
+            {
+                FileList = new ObservableCollection<FileInfo>(((Models.Directory)sender).DirectoryInfo.GetFiles());
+            }
+            catch
+            {
+            }
+        }
+
+
+
     }
 }

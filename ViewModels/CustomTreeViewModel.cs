@@ -9,10 +9,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FullScratch.ViewModels
 {
-    class CustomTreeViewModel:INotifyPropertyChanged
+    class CustomTreeViewModel:ViewModelBase
     {
         /// <summary>
         /// ルートディレクトリオブジェクト
@@ -26,6 +27,7 @@ namespace FullScratch.ViewModels
         {
             RootDirectory = Directory.GetRootDirectory();
             Directory.SelectedChanged += SelectedItemTextUpdate;
+           
         }
         
         /// <summary>
@@ -43,6 +45,7 @@ namespace FullScratch.ViewModels
                 _SelectedItemText = value;
                 RaisePropertyChanged();
                 RaisePropertyChanged(nameof(_SelectedItemText));
+                OnSelectedChanged?.Invoke(this);
             }
         }
 
@@ -54,12 +57,8 @@ namespace FullScratch.ViewModels
             this.SelectedItemText = Directory.SelectedDirectory.DirectoryInfo.FullName;
         }
 
-            /// <summary>
-            /// プロパティ変更通知用
-            /// </summary>
-            public event PropertyChangedEventHandler PropertyChanged;
+        public delegate void SelectedChangedEventHandler(object sender);
+        public static event SelectedChangedEventHandler OnSelectedChanged;
 
-            private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-                => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

@@ -23,6 +23,7 @@ namespace FullScratch.Views
         public CustomList()
         {
             InitializeComponent();
+
         }
     }
 }
