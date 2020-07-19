@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using FullScratch.Command;
 using FullScratch.Models;
+using FullScratch.Models.Command;
 
 namespace FullScratch.ViewModels
 {
@@ -29,8 +30,8 @@ namespace FullScratch.ViewModels
                                                                    new Menu("Open"),
                                                                    new Menu("Save(New)"),
                                                                    new Menu("Save(OverWrite)"),
-                                                                   new Menu("Quit")},
-                                  new NewFileCmd()));
+                                                                   new Menu("Quit",new MainWindowCloseCmd())}
+                                  ));
             RootMenu.Add(new Menu("Edit"));
             RootMenu.Add(new Menu("Find & Replace"));
             RootMenu.Add(new Menu("Help"));

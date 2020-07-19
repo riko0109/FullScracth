@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Command\MainWindowCloseCmd.cs" />
     <Compile Include="Models\Command\NewFileCmd.cs" />
     <Compile Include="Models\Command\OpenFileCmd.cs" />
     <Compile Include="Models\Converter\ByteSIConverter.cs" />

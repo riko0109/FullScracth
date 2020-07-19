@@ -53,6 +53,17 @@ namespace FullScratch.Models
         }
 
         /// <summary>
+        /// ヘッダー、子アイテム引数ありコンストラクタ
+        /// </summary>
+        /// <param name="header"></param>
+        /// <param name="childmenu"></param>
+        public Menu(string header, ObservableCollection<Menu> childmenus)
+        {
+            this.Header = header;
+            this.ChildMenus = childmenus;
+        }
+
+        /// <summary>
         /// ヘッダー、子アイテム引数ありコンストラクタ デバッグ用
         /// </summary>
         /// <param name="header"></param>

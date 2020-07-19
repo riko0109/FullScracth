@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullScratch", "FullScratch.csproj", "{DDB539D0-2664-4731-9FF7-9E7D0EF56E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullScratchTest", "..\FullScratchTest\FullScratchTest.csproj", "{5FADCCB6-48BA-42AC-A76B-E248070CB4CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullScratchTest", "FullScratchTest\FullScratchTest.csproj", "{5FADCCB6-48BA-42AC-A76B-E248070CB4CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

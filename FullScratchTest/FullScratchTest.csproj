@@ -57,7 +57,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FullScratch\FullScratch.csproj">
+    <ProjectReference Include="..\FullScratch.csproj">
       <Project>{ddb539d0-2664-4731-9ff7-9e7d0ef56e2b}</Project>
       <Name>FullScratch</Name>
     </ProjectReference>
