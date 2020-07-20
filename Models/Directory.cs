@@ -81,7 +81,6 @@ namespace FullScratch.Models
                 if (IsSelected)
                 {
                     Selected_Changed(this);
-                    SelectedChanged();
                     OnSelectedChanged(this);
                 }
             }

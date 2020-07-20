@@ -22,7 +22,8 @@ namespace FullScratch.Command
 
         public void Execute(object parameter)
         {
-            CustomTabViewModel.Tabs.Add(new Models.TabItem("New", string.Empty));
+            var TabViewModel = new CustomTabViewModel();
+            TabViewModel.TabAdd(new Models.TabItem("New", "a"));
         }
     }
 }

@@ -40,7 +40,11 @@ namespace FullScratch.ViewModels
             set
             {
                 _SelectedListItem = value;
-                SelectedFileChanged(this);
+                if (SelectedListItem != null)
+                {
+                    SelectedFileChanged(this);
+                }
+                    
                 RaisePropertyChanged();
             }
         }

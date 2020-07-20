@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 namespace FullScratch.Models.Command
 {
-    public class OpenFileCmd : ICommand
+    class TabCloseCmd : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -20,10 +21,8 @@ namespace FullScratch.Models.Command
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("OpenFileCmd");
-            MessageBox.Show(CustomTabViewModel.Tabs[0].Contents);
-            MessageBox.Show(CustomTabViewModel.Tabs[1].Contents);
-
+            CustomTabViewModel.Tabs.RemoveAt(CustomTabViewModel.Tabs.IndexOf(CustomTabViewModel.Tabs.FirstOrDefault(x => x.TabID == parameter)));
         }
+
     }
 }

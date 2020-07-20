@@ -71,6 +71,8 @@
     <Compile Include="Models\Command\MainWindowCloseCmd.cs" />
     <Compile Include="Models\Command\NewFileCmd.cs" />
     <Compile Include="Models\Command\OpenFileCmd.cs" />
+    <Compile Include="Models\Command\TabCloseCmd.cs" />
+    <Compile Include="Models\Common\FileOpener.cs" />
     <Compile Include="Models\Converter\ByteSIConverter.cs" />
     <Compile Include="Models\MenuCreater.cs" />
     <Compile Include="Models\TabItem.cs" />
