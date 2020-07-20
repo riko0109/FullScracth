@@ -13,6 +13,29 @@ namespace FullScratch.Models
 {
     public class TabItem
     {
+        public enum ControlType
+        {
+            Text,
+            CSV,
+            Image
+        }
+
+        /// <summary>
+        /// tabが持つ子コントロールのタイプ　テキスト、グリッド、イメージ
+        /// </summary>
+        private ControlType _TabType { get; set; }
+        public ControlType TabType
+        {
+            get
+            {
+                return _TabType;
+            }
+            set
+            {
+                _TabType = value;
+            }
+        }
+
         /// <summary>
         /// ヘッダーに表示される文字列
         /// </summary>
@@ -59,6 +82,16 @@ namespace FullScratch.Models
             this.ExecuteCmd = new TabCloseCmd();
             this.TabID = System.Guid.NewGuid().ToString();
             
+        }
+
+        public TabItem(string header, string contents,ControlType type)
+        {
+            this.Header = header;
+            this.Contents = contents;
+            this.ExecuteCmd = new TabCloseCmd();
+            this.TabType = type;
+            this.TabID = System.Guid.NewGuid().ToString();
+
         }
 
         private ICommand _ExecuteCmd { get; set; }

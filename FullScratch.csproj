@@ -78,6 +78,7 @@
     <Compile Include="Models\TabItem.cs" />
     <Compile Include="Models\Directory.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\TemplateSelector\TabItemTemplateSelector.cs" />
     <Compile Include="ViewModels\CustomListViewModel.cs" />
     <Compile Include="ViewModels\CustomMenuViewModel.cs" />
     <Compile Include="ViewModels\CustomTabViewModel.cs" />
@@ -128,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
