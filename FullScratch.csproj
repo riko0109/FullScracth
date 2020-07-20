@@ -72,13 +72,16 @@
     <Compile Include="Models\Command\NewFileCmd.cs" />
     <Compile Include="Models\Command\OpenFileCmd.cs" />
     <Compile Include="Models\Command\TabCloseCmd.cs" />
+    <Compile Include="Models\Common\DataTableConstructor.cs" />
     <Compile Include="Models\Common\FileOpener.cs" />
     <Compile Include="Models\Converter\ByteSIConverter.cs" />
+    <Compile Include="Models\GridTabItem.cs" />
     <Compile Include="Models\MenuCreater.cs" />
-    <Compile Include="Models\TabItem.cs" />
+    <Compile Include="Models\TabItemBase.cs" />
     <Compile Include="Models\Directory.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\TemplateSelector\TabItemTemplateSelector.cs" />
+    <Compile Include="Models\TextTabItem.cs" />
     <Compile Include="ViewModels\CustomListViewModel.cs" />
     <Compile Include="ViewModels\CustomMenuViewModel.cs" />
     <Compile Include="ViewModels\CustomTabViewModel.cs" />
@@ -129,10 +132,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomTree.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TabTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

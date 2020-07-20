@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace FullScratch.Models
 {
-    public class TabItem
+    public class TabItemBase
     {
         public enum ControlType
         {
@@ -39,25 +39,25 @@ namespace FullScratch.Models
         /// <summary>
         /// ヘッダーに表示される文字列
         /// </summary>
-        public string Header { get; private set; }
+        public string Header { get; protected internal set; }
 
         /// <summary>
         /// タブコントロールに表示される文字列
         /// </summary>
-        private string _Contents { get; set; }
-        public string Contents
-        {
-            get
-            {
-                return _Contents;
-            }
-            set
-            {
-                _Contents = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(_Contents));
-            }
-        }
+        //private string _Contents { get; set; }
+        //public string Contents
+        //{
+        //    get
+        //    {
+        //        return _Contents;
+        //    }
+        //    set
+        //    {
+        //        _Contents = value;
+        //        RaisePropertyChanged();
+        //        RaisePropertyChanged(nameof(_Contents));
+        //    }
+        //}
 
         /// <summary>
         /// TabItemのアイデンティティ
@@ -75,19 +75,11 @@ namespace FullScratch.Models
             }
         }
 
-        public TabItem(string header,string contents)
-        {
-            this.Header = header;
-            this.Contents = contents; 
-            this.ExecuteCmd = new TabCloseCmd();
-            this.TabID = System.Guid.NewGuid().ToString();
-            
-        }
 
-        public TabItem(string header, string contents,ControlType type)
+        public TabItemBase(string header,ControlType type)
         {
             this.Header = header;
-            this.Contents = contents;
+            //this.Contents = contents;
             this.ExecuteCmd = new TabCloseCmd();
             this.TabType = type;
             this.TabID = System.Guid.NewGuid().ToString();

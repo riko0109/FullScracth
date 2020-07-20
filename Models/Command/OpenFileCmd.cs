@@ -21,9 +21,6 @@ namespace FullScratch.Models.Command
         public void Execute(object parameter)
         {
             MessageBox.Show("OpenFileCmd");
-            MessageBox.Show(CustomTabViewModel.Tabs[0].Contents);
-            MessageBox.Show(CustomTabViewModel.Tabs[1].Contents);
-
         }
     }
 }

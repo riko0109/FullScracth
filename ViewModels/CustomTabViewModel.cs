@@ -17,8 +17,8 @@ namespace FullScratch.ViewModels
         /// <summary>
         /// タブアイテムを保持するコレクション
         /// </summary>
-        private static ObservableCollection<TabItem> _Tabs { get; set; } = new ObservableCollection<TabItem>();
-        public static ObservableCollection<TabItem> Tabs
+        private static ObservableCollection<TabItemBase> _Tabs { get; set; } = new ObservableCollection<TabItemBase>();
+        public static ObservableCollection<TabItemBase> Tabs
         {
             get
             {
@@ -34,12 +34,12 @@ namespace FullScratch.ViewModels
         {
         }
 
-        public void TabAdd(TabItem tab)
+        public void TabAdd(TabItemBase tab)
         {
             Tabs.Add(tab);
         }
 
-        public void TabAdd(List<TabItem> tabs)
+        public void TabAdd(List<TabItemBase> tabs)
         {
             foreach (var t in tabs)
             {

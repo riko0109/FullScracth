@@ -16,11 +16,15 @@
         <ResourceDictionary>
             <!--  テキスト表示用テンプレート  -->
             <DataTemplate x:Key="TextTemplate">
-                <TextBox />
+                <TextBox Text="{Binding Contents, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
             </DataTemplate>
             <!--  CSV表示用テンプレート  -->
             <DataTemplate x:Key="CSVTemplate">
-                <DataGrid/>
+                <DataGrid ItemsSource="{Binding DataTable}" AutoGenerateColumns="True" CanUserReorderColumns="True"/>
+            </DataTemplate>
+            <!-- Image表示用テンプレート-->
+            <DataTemplate x:Key="ImageTemplate">
+                <Image/>
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -33,7 +37,9 @@
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplateSelector>
-                    <mt:TabItemTemplateSelector TextBoxTabTemplate="{StaticResource TextTemplate}" GridViewTabTemplate="{StaticResource CSVTemplate}"/>
+                    <mt:TabItemTemplateSelector TextBoxTabTemplate="{StaticResource TextTemplate}"
+                                                GridViewTabTemplate="{StaticResource CSVTemplate}"
+                                                ImageTabTemplate="{StaticResource ImageTemplate}"/>
             </TabControl.ContentTemplateSelector>
         </TabControl>
     </Grid>

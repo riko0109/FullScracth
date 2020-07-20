@@ -16,15 +16,15 @@ namespace FullScratch.Models.TemplateSelector
 
         public override DataTemplate SelectTemplate(object Item,DependencyObject container)
         {
-            switch(((TabItem)Item).TabType)
+            switch(((TabItemBase)Item).TabType)
             {
-                case TabItem.ControlType.Text:
+                case TabItemBase.ControlType.Text:
                     return TextBoxTabTemplate;
 
-                case TabItem.ControlType.CSV:
+                case TabItemBase.ControlType.CSV:
                     return GridViewTabTemplate;
 
-                case TabItem.ControlType.Image:
+                case TabItemBase.ControlType.Image:
                     return ImageTabTemplate;
 
                 default:
