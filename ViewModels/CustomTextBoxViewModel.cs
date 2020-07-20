@@ -36,25 +36,26 @@ namespace FullScratch.ViewModels
         public CustomTextBoxViewModel()
         {
             //ツリービューの選択アイテム変更イベントを購読し発生したらTreeViewSelectedChangedを呼ぶ
-            Directory.OnSelectedChanged += FullPathChanged;
-            CustomListViewModel.SelectedFileChanged += FullPathChanged;
+            Directory.OnSelectedChanged += DirectoryPathChanged;
+            CustomListViewModel.SelectedFileChanged += FilePathChanged;
         }
 
         /// <summary>
         /// ツリービューの選択アイテム変更時のイベントハンドラ
         /// </summary>
         /// <param name="sender"></param>
-        private void FullPathChanged(object sender)
+        private void DirectoryPathChanged(object sender)
         {
-           
+
             if (sender is Directory)
             {
                 FullPath = ((Directory)sender).DirectoryInfo.FullName;
             }
-            else if (sender is CustomListViewModel)
-            {
-                FullPath = ((CustomListViewModel)sender).SelectedListItem?.FullName;
-            }
+        }
+
+        private void FilePathChanged(object sender)
+        {
+            FullPath = ((CustomListViewModel)sender).SelectedListItem?.FullName;
         }
     }
 }

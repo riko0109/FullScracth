@@ -7,26 +7,21 @@
              xmlns:vm="clr-namespace:FullScratch.ViewModels"
              xmlns:local="clr-namespace:FullScratch.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <vm:CustomTabViewModel/>
-    </UserControl.DataContext>
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static vm:CustomTabViewModel.Tabs}">
     
     <Grid>
-        <TabControl x:Name="Tab" ItemsSource="{Binding Tabs}">
-            <TabControl.ContextMenu>
-                <ContextMenu ItemsSource="{Binding ContextMenu}">
-                                 <!-- -->
-                </ContextMenu>
-            </TabControl.ContextMenu>
+        <TabControl x:Name="Tab" ItemsSource="{Binding}" DataContext="{Binding}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <HeaderedContentControl Header="{Binding Header}" ContextMenu="{Binding Tabs}"/>
+                        <TextBlock Text="{Binding Header}">
+                            <Button Content="×" Margin="5,5,0,0" BorderThickness="0" Background="Transparent" Command="{Binding ExecuteCmd}" CommandParameter="{Binding TabID}"/>
+                        </TextBlock>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <TextBox Text="{Binding Contents}"/>
+                    <TextBox Text="{Binding Contents, Mode=TwoWay}"/>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>

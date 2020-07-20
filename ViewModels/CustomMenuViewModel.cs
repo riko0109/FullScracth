@@ -27,7 +27,7 @@ namespace FullScratch.ViewModels
         {
             RootMenu.Add(new Menu("File",
                                   new ObservableCollection<Menu> { new Menu("New",new NewFileCmd()),
-                                                                   new Menu("Open"),
+                                                                   new Menu("Open",new OpenFileCmd()),
                                                                    new Menu("Save(New)"),
                                                                    new Menu("Save(OverWrite)"),
                                                                    new Menu("Quit",new MainWindowCloseCmd())}

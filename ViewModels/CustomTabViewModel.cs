@@ -1,5 +1,6 @@
 ﻿using FullScratch.Command;
 using FullScratch.Models;
+using FullScratch.Models.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,10 +8,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace FullScratch.ViewModels
 {
-    public class CustomTabViewModel:ViewModelBase
+    public class CustomTabViewModel : ViewModelBase
     {
         /// <summary>
         /// タブアイテムを保持するコレクション
@@ -30,21 +32,19 @@ namespace FullScratch.ViewModels
 
         public CustomTabViewModel()
         {
-            Tabs.Add(new TabItem("New", string.Empty));
         }
 
-        private List<Menu> _ContextMenu { get; set; }
-        public List<Menu> ContextMenu
+        public void TabAdd(TabItem tab)
         {
-            get
-            {
-                return TabItem.ContextMenu;
-            }
-            set
-            {
-                TabItem.ContextMenu = value;
-            }
+            Tabs.Add(tab);
         }
 
+        public void TabAdd(List<TabItem> tabs)
+        {
+            foreach (var t in tabs)
+            {
+                Tabs.Add(t);
+            }
+        }
     }
 }

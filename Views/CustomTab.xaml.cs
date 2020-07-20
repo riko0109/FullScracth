@@ -24,5 +24,11 @@ namespace FullScratch.Views
         {
             InitializeComponent();
         }
+
+
+        private void Tab_Unselected(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(((Models.TabItem)((TabControl)sender).SelectedItem).Contents);
+        }
     }
 }
