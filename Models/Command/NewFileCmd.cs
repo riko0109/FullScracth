@@ -24,7 +24,9 @@ namespace FullScratch.Command
         {
             var TabViewModel = new CustomTabViewModel();
             TabViewModel.TabAdd(new Models.TextTabItem("New","TextTabItem",Models.TabItemBase.ControlType.Text));
-            TabViewModel.TabAdd(new Models.GridTabItem("New",Models.TabItemBase.ControlType.CSV));
+            TabViewModel.TabAdd(new Models.GridTabItem("New", @"C:\Users\Administrator\Desktop\csv_kanto\kanto.csv", Models.TabItemBase.ControlType.CSV));
+            TabViewModel.TabAdd(new Models.ImageTabItem("New", Models.TabItemBase.ControlType.Image, @"C:\Users\Administrator\Desktop\58f3b1ada773b6b6206db315610ede90-1000x999.jpg"));
+
         }
     }
 }

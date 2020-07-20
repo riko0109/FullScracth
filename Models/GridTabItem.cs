@@ -6,15 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using FullScratch.Models.Common;
+using System.IO;
 
 namespace FullScratch.Models
 {
     class GridTabItem:TabItemBase
     {
-        public GridTabItem(string header,string data,ControlType type):base(header,type)
+        public GridTabItem(string header,string datapath,ControlType type):base(header,type)
         {
             this.Header = header;
-            this.DataTable =new DataTableConstructor(data).TableCreate;
+            this.DataTable =new DataTableConstructor(datapath,Encoding.Default,true).Construct();
             this.TabType = type;
             this.TabID = System.Guid.NewGuid().ToString();
 

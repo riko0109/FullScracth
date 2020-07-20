@@ -76,6 +76,7 @@
     <Compile Include="Models\Common\FileOpener.cs" />
     <Compile Include="Models\Converter\ByteSIConverter.cs" />
     <Compile Include="Models\GridTabItem.cs" />
+    <Compile Include="Models\ImageTabItem.cs" />
     <Compile Include="Models\MenuCreater.cs" />
     <Compile Include="Models\TabItemBase.cs" />
     <Compile Include="Models\Directory.cs" />

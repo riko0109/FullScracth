@@ -24,7 +24,7 @@
             </DataTemplate>
             <!-- Image表示用テンプレート-->
             <DataTemplate x:Key="ImageTemplate">
-                <Image/>
+                <Image Source="{Binding Image}"/>
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
