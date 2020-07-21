@@ -16,12 +16,32 @@
         <ResourceDictionary>
             <!--  テキスト表示用テンプレート  -->
             <DataTemplate x:Key="TextTemplate">
-                <TextBox Text="{Binding Contents, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Text="{Binding Contents, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, IsAsync=True}" FontSize="20" />
             </DataTemplate>
+            
             <!--  CSV表示用テンプレート  -->
             <DataTemplate x:Key="CSVTemplate">
-                <DataGrid ItemsSource="{Binding DataTable}" AutoGenerateColumns="True" CanUserReorderColumns="True"/>
+                <DataGrid ItemsSource="{Binding DataTable, Mode=TwoWay, IsAsync=True}" AutoGenerateColumns="True"
+                          VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" VirtualizingPanel.IsVirtualizingWhenGrouping="False"
+                          EnableRowVirtualization="True" CanUserReorderColumns="True" HorizontalGridLinesBrush="SkyBlue"  VerticalGridLinesBrush="DeepSkyBlue" >
+                    <DataGrid.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </DataGrid.ItemsPanel>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Content" Value="{Binding UpdateSourceTrigger=PropertyChanged}"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.RowHeaderStyle>
+                        <Style TargetType="{x:Type DataGridRowHeader}">
+                            <Setter Property="Content" Value="{Binding [0]}"/>
+                        </Style>
+                    </DataGrid.RowHeaderStyle>
+                </DataGrid>
             </DataTemplate>
+            
             <!-- Image表示用テンプレート-->
             <DataTemplate x:Key="ImageTemplate">
                 <Image Source="{Binding Image}"/>
@@ -30,10 +50,12 @@
     </UserControl.Resources>
     
     <Grid>
-        <TabControl x:Name="Tab" ItemsSource="{Binding}" DataContext="{Binding}">
+        <TabControl x:Name="Tab" ItemsSource="{Binding}" DataContext="{Binding}" FontSize="20" VirtualizingPanel.VirtualizationMode="Recycling">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Header}"/>
+                    <TextBlock Text="{Binding Header}">
+                        <Button Content="×" Command="{Binding ExecuteCmd}" CommandParameter="{Binding TabID}" BorderThickness="0" Background="Transparent"/>
+                    </TextBlock>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplateSelector>

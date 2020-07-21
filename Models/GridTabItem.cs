@@ -15,12 +15,12 @@ namespace FullScratch.Models
         public GridTabItem(string header,string datapath,ControlType type):base(header,type)
         {
             this.Header = header;
-            this.DataTable =new DataTableConstructor(datapath,Encoding.Default,true).Construct();
+            this.DataTable =new DataTableConstructor(datapath,Encoding.Default,false).Construct();
             this.TabType = type;
             this.TabID = System.Guid.NewGuid().ToString();
-
         }
 
+  
         private DataTable _DataTable { get; set; } = new DataTable();
         public DataTable DataTable
         {
@@ -31,6 +31,15 @@ namespace FullScratch.Models
             set
             {
                 _DataTable = value;
+            }
+        }
+
+        private long _RowIndex { get; set; }
+        public long RowIndex
+        {
+            get
+            {
+                return DataTable.Rows.Count;
             }
         }
     }

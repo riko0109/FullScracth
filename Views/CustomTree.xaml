@@ -14,7 +14,7 @@
     </UserControl.DataContext>
     
     <Grid>
-        <TreeView  ItemsSource="{Binding RootDirectory}" >
+        <TreeView  ItemsSource="{Binding RootDirectory}" FontSize="20" >
             <TreeView.Resources>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="{Binding IsExpanded,Mode=TwoWay}"/>

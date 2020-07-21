@@ -13,10 +13,11 @@
     </UserControl.DataContext>
     
     <Grid>
-        <Menu ItemsSource="{Binding RootMenu}">
+        <Menu ItemsSource="{Binding RootMenu}" FontSize="20">
             <Menu.Resources>
                 <Style TargetType="MenuItem">
                     <Setter Property="Command" Value="{Binding Path=ExecuteCmd}"/>
+                    <Setter Property="Margin" Value="5,5,20,0"/>
                 </Style>
             </Menu.Resources>
             <Menu.ItemTemplate>

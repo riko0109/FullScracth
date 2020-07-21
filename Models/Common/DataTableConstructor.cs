@@ -73,9 +73,11 @@ namespace FullScratch.Models.Common
                     }
                 }
 
+                long RowCnt = 1;
                 while(!StreamReader.EndOfStream)
                 {
                     var dr = temptable.NewRow();
+                    
                     dr.ItemArray = StreamReader.ReadLine().Split(',');
                     temptable.Rows.Add(dr.ItemArray);
                 }

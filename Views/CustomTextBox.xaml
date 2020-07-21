@@ -14,7 +14,7 @@
     </UserControl.DataContext>
     <Grid>
          <!--<TextBox Text="{Binding SelectedItemText, Mode=OneWay}"/>-->
-        <TextBox Text="{Binding FullPath , Mode=TwoWay}"/>
+        <TextBox Text="{Binding FullPath , Mode=TwoWay}" FontSize="20"/>
     </Grid>
 
 </UserControl>

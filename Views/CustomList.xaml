@@ -18,8 +18,8 @@
         <vm:CustomListViewModel/>
     </UserControl.DataContext>
     
-    <ListView x:Name="ListView" ItemsSource="{Binding FileList}" HorizontalAlignment="Stretch" SelectedItem="{Binding SelectedListItem}">
-        <ListView.View>
+    <ListView x:Name="ListView" ItemsSource="{Binding FileList}" HorizontalAlignment="Stretch" SelectedItem="{Binding SelectedListItem}" FontSize="15">
+           <ListView.View>
             <GridView>
                 <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="Auto">
                     <GridViewColumnHeader Content="Name" HorizontalContentAlignment="Stretch"/>

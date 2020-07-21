@@ -1,11 +1,12 @@
-﻿using FullScratch.ViewModels;
+﻿using FullScratch.Models.Common;
+using FullScratch.ViewModels;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
+using static FullScratch.Models.TabItemBase;
 
 namespace FullScratch.Models.Command
 {
@@ -20,7 +21,10 @@ namespace FullScratch.Models.Command
 
         public void Execute(object parameter)
         {
-            MessageBox.Show("OpenFileCmd");
+            using (var Opener = new FileOpener(Encoding.Default, ControlType.CSV))
+            {
+                Opener.OpenFile();
+            }
         }
     }
 }
