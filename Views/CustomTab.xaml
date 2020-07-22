@@ -8,6 +8,7 @@
              xmlns:m="clr-namespace:FullScratch.Models"
              xmlns:mt="clr-namespace:FullScratch.Models.TemplateSelector"
              xmlns:local="clr-namespace:FullScratch.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{x:Static vm:CustomTabViewModel.Tabs}">
@@ -24,6 +25,11 @@
                 <DataGrid ItemsSource="{Binding DataTable, Mode=TwoWay, IsAsync=True}" AutoGenerateColumns="True"
                           VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" VirtualizingPanel.IsVirtualizingWhenGrouping="False"
                           EnableRowVirtualization="True" CanUserReorderColumns="True" HorizontalGridLinesBrush="SkyBlue"  VerticalGridLinesBrush="DeepSkyBlue" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="AutoGeneratingColumn">
+                            <i:InvokeCommandAction Command="{Binding ExecuteCmd}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type DataGrid}}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <DataGrid.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel/>

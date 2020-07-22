@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data;
 using FullScratch.Models.Common;
 using System.IO;
+using System.Windows.Input;
+using FullScratch.Models.Command;
 
 namespace FullScratch.Models
 {
@@ -18,6 +20,8 @@ namespace FullScratch.Models
             this.DataTable =new DataTableConstructor(datapath,Encoding.Default,false).Construct();
             this.TabType = type;
             this.TabID = System.Guid.NewGuid().ToString();
+            this._ExecuteCmd = new LoadRowCancelCmd();
+
         }
 
   
@@ -40,6 +44,19 @@ namespace FullScratch.Models
             get
             {
                 return DataTable.Rows.Count;
+            }
+        }
+
+        private ICommand _ExecuteCmd { get; set; }
+        public ICommand ExecuteCmd
+        {
+            get
+            {
+                return _ExecuteCmd;
+            }
+            set
+            {
+                _ExecuteCmd = value;
             }
         }
     }

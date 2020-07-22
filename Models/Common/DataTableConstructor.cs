@@ -59,15 +59,15 @@ namespace FullScratch.Models.Common
             {            
                 if(UseHeader)
                 {
-                    for (int i = 1; i <= SeparaterCount; i++)
+                    for (int i = 0; i <= SeparaterCount; i++)
                     {
-                        temptable.Columns.Add().ColumnName = Line.Split(',')[i - 1];
+                        temptable.Columns.Add().ColumnName = Line.Split(',')[i];
                     }
                     StreamReader.ReadLine();
                 }
                 else
                 {
-                    for (int i = 1; i <= SeparaterCount; i++)
+                    for (int i = 0; i <= SeparaterCount; i++)
                     {
                         temptable.Columns.Add().ColumnName = i.ToString();
                     }
@@ -77,9 +77,9 @@ namespace FullScratch.Models.Common
                 while(!StreamReader.EndOfStream)
                 {
                     var dr = temptable.NewRow();
-                    
-                    dr.ItemArray = StreamReader.ReadLine().Split(',');
+                    dr.ItemArray = (RowCnt +","+ StreamReader.ReadLine()).Split(',');
                     temptable.Rows.Add(dr.ItemArray);
+                    RowCnt++;
                 }
             }
             return temptable;

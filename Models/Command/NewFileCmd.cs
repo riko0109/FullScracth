@@ -1,4 +1,5 @@
-﻿using FullScratch.ViewModels;
+﻿using FullScratch.Models;
+using FullScratch.ViewModels;
 using FullScratch.Views;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace FullScratch.Command
         {
             var TabViewModel = new CustomTabViewModel();
             TabViewModel.TabAdd(new Models.TextTabItem("New",string.Empty,Models.TabItemBase.ControlType.Text));
+            TabViewModel.TabAdd(new Models.ImageTabItem("New",TabItemBase.ControlType.Image, @"C:\Users\H0882\source\repos\FullScratch\Resource\cat00010.jpg"));
 
         }
     }
