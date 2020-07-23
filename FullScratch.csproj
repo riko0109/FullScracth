@@ -79,6 +79,7 @@
     <Compile Include="Models\Common\DataTableConstructor.cs" />
     <Compile Include="Models\Common\FileOpener.cs" />
     <Compile Include="Models\Converter\ByteSIConverter.cs" />
+    <Compile Include="Models\Extentions\InvokeCommandExtention.cs" />
     <Compile Include="Models\GridTabItem.cs" />
     <Compile Include="Models\ImageTabItem.cs" />
     <Compile Include="Models\MenuCreater.cs" />
